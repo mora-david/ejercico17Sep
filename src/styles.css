@@ -1,0 +1,55 @@
+.prueba{
+    color:red;
+    font-size: 40px;
+    background: yellow;
+}
+
+.image{
+    width:80px;
+    height:80px;
+    border-radius: 100px;
+}
+
+.cardcontainerCenter{
+    /* background:red; */
+    width:320px;
+    /* height: 300px; */
+    margin: 30px
+    /* display:flex; */
+}
+
+.cardcontainerLeft{
+    /* background:green; */
+    width:350px;
+    /* height: 300px; */
+    display:flex
+}
+
+.cardcontainerRight{
+    /* background:pink; */
+    width:350px;
+    /* height: 300px; */
+    display:flex;
+    flex-direction:row-reverse;
+}
+
+.forSus{
+    width:250px;
+    background: white;
+    text-align: left;
+    padding: 5px;
+    color:orange;
+}
+
+.listMenu{
+    display:inline; 
+    padding: 5px;
+}
+
+.foot1{
+    color:orange;
+    background:#f8f9fa!important;
+    margin: 200px;
+    /* width: 100%; */
+    text-align: right;
+}

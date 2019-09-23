@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+          <Header1 :tags1="tags" style="margin-bottom:50px"></Header1>
+              <router-view/>
     </div>
-    <router-view/>
+    <Footer1></Footer1>
+
   </div>
+
 </template>
 
 <style>
@@ -29,3 +31,44 @@
   color: #42b983;
 }
 </style>
+
+
+<script>
+import Header1 from '@/components/Header1.vue'
+import Footer1 from '@/components/Footer1.vue'
+import axios from 'axios'
+
+export default {
+   data(){
+        return {
+            tags:'',
+        }
+    },
+  components: {
+    Header1,
+    Footer1
+  },
+  created(){
+
+    this.getTags()
+  },
+
+
+
+methods:{
+    getTags(){
+      const url = process.env.VUE_APP_TAGS
+      axios.get(url)
+      .then(response => {
+        this.tags = response
+      })
+      .catch(() => {
+        alert('error')
+      })
+    },
+
+
+}
+  
+}
+</script>

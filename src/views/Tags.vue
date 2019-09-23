@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
+<div>
+ <div class="home">
  
   <div class="container" style="width:50%">
     <!-- <ComponenteSusVote v-for="datacard in datacards.data" :key="datacard.id" :datos="datacard"></ComponenteSusVote>  -->
   </div>
     <div class="container">
   <div class="row">
-    <ComponenteSusVote v-for="datacard in datacards.data" :key="datacard.id" :datos="datacard"></ComponenteSusVote>
-
+    <ComponenteSusVote v-for="tagger in tags.data.newsletters" :key="tagger.id" :datos="tagger"></ComponenteSusVote>
+    
     </div>
   </div>
 </div>
-   
-
+</div>
 </template>
 
 <script>
@@ -33,7 +33,6 @@ export default {
     },
   name: 'home',
   created(){
-    this.getNews()
     this.getTags()
   },
   components: {
@@ -42,19 +41,8 @@ export default {
     ComponenteGiveMail,
   },
   methods:{
-    getNews(){
-      const url = process.env.VUE_APP_NEWS
-      axios.get(url)
-      .then(response => {
-        this.datacards = response
-      })
-      .catch(() => {
-        alert('error')
-      })
-    },
-
     getTags(){
-      const url = process.env.VUE_APP_TAGS
+      const url = process.env.VUE_APP_TAGS+'/'+this.$route.params.id+'?include=newsletters'
       axios.get(url)
       .then(response => {
         this.tags = response
